@@ -1,0 +1,22 @@
+{
+  "rules": {
+    "file-name-casing": [true, "kebab-case"],
+    "prefer-switch": [
+      true,
+      {
+        "min-cases": 3
+      }
+    ],
+    "switch-final-break": true,
+    "import-spacing": true,
+    "max-line-length": [true, 120],
+    "no-trailing-whitespace": false,
+    "quotemark": [true, "single"],
+    "semicolon": [true, "always"],
+    "trailing-comma": false,
+    "indent": [true, "tabs", 4],
+    "linterOptions": {
+      "exclude": ["./src/**/*.d.ts"]
+    }
+  }
+}
