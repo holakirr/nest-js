@@ -1,8 +1,10 @@
-import { Controller, Get } from '@nestjs/common';
-import { AppService } from './app.service';
+import { Controller, Get } from "@nestjs/common";
+
+import AppService from "./app.service";
 
 @Controller()
-export class AppController {
+class AppController {
+  // eslint-disable-next-line no-useless-constructor
   constructor(private readonly appService: AppService) {}
 
   @Get()
@@ -10,3 +12,5 @@ export class AppController {
     return this.appService.getHello();
   }
 }
+
+export default AppController;
