@@ -1,0 +1,34 @@
+export enum TopLevelCategory {
+  Courses = "Courses",
+  Services = "Services",
+  Books = "Books",
+  Products = "Products"
+}
+
+export default class TopPageModel {
+  firstLevelCategory: TopLevelCategory;
+
+  secondCategory: string;
+
+  title: string;
+
+  pageCategory: string;
+
+  hh?: {
+    count: number;
+    juniorSalary: number;
+    middleSalary: number;
+    seniorSalary: number;
+  };
+
+  advantages: {
+    title: string;
+    description: string;
+  }[];
+
+  seoText: string;
+
+  tagsTitle: string;
+
+  tags: string[];
+}
