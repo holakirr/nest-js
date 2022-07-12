@@ -36,6 +36,7 @@ module.exports = {
     "prettier/prettier": 2,
     semi: ["error", "always"],
     "class-methods-use-this": "off",
+    "no-useless-constructor": "off",
     "import/order": [
       2,
       {
