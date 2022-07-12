@@ -35,6 +35,7 @@ module.exports = {
     quotes: ["error", "double"],
     "prettier/prettier": 2,
     semi: ["error", "always"],
+    "class-methods-use-this": "off",
     "import/order": [
       2,
       {

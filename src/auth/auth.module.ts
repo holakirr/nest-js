@@ -1,4 +1,8 @@
 import { Module } from "@nestjs/common";
 
-@Module({})
+import { default as AuthController } from "./auth.controller";
+
+@Module({
+  controllers: [AuthController]
+})
 export default class AuthModule {}

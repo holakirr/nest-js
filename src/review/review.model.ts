@@ -1,4 +1,6 @@
 export default class ReviewModel {
+  _id: string;
+
   name: string;
 
   title: string;
