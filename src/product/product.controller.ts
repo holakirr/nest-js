@@ -1,10 +1,10 @@
 import { Body, Controller, Delete, Get, HttpCode, Param, Patch, Post } from "@nestjs/common";
 
-import FindProductDto from "./dto/find-product.dto";
-import ProductModel from "./product.model";
+import { FindProductDto } from "./dto/find-product.dto";
+import { ProductModel } from "./product.model";
 
 @Controller("product")
-export default class ProductController {
+export class ProductController {
   @Post("create")
   async create(@Body() dto: Omit<ProductModel, "_id">) {
     return "Product created";
