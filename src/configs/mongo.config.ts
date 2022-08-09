@@ -10,7 +10,9 @@ const getMongoString = (configService: ConfigService) =>
 const getMongoOptions = () => ({
   useNewUrlParser: true,
   useCreateIndex: true,
-  useUnifiedTopology: true
+  useUnifiedTopology: true,
+  retryWrites: true,
+  w: "majority"
 });
 
 export const getMongoConfig = async (configService: ConfigService): Promise<TypegooseModuleOptions> => {
