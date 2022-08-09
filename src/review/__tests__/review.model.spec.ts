@@ -1,4 +1,4 @@
-import { default as ReviewModel } from "../review.model";
+import { ReviewModel } from "../review.model";
 
 describe("ReviewModel", () => {
   it("should be defined", () => {

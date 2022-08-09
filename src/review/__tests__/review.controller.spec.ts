@@ -1,6 +1,6 @@
 import { Test, TestingModule } from "@nestjs/testing";
 
-import { default as ReviewController } from "../review.controller";
+import { ReviewController } from "../review.controller";
 
 describe("ReviewController", () => {
   let controller: ReviewController;

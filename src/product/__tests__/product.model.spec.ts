@@ -1,4 +1,4 @@
-import { default as ProductModel } from "../product.model";
+import { ProductModel } from "../product.model";
 
 describe("ProductModel", () => {
   it("should be defined", () => {

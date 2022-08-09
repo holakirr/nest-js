@@ -1,4 +1,4 @@
-import { default as AuthModel } from "../auth.model";
+import { AuthModel } from "../auth.model";
 
 describe("AuthModel", () => {
   it("should be defined", () => {

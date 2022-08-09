@@ -9,7 +9,9 @@ module.exports = {
   extends: ["airbnb", "eslint:recommended", "plugin:@typescript-eslint/recommended", "plugin:prettier/recommended"],
   settings: {
     "import/resolver": {
-      typescript: {}
+      node: {
+        extensions: [".js", ".jsx", ".ts", ".tsx"]
+      }
     },
     "prettier/prettier": {
       singleQuote: false,
@@ -27,6 +29,8 @@ module.exports = {
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "@typescript-eslint/interface-name-prefix": "off",
     "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-empty-function": "off",
+    "import/prefer-default-export": "off",
     "no-duplicate-imports": "error",
     "import/no-named-default": "off",
     "@typescript-eslint/no-shadow": ["error"],
