@@ -28,19 +28,13 @@ module.exports = {
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "@typescript-eslint/interface-name-prefix": "off",
-    "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/no-empty-function": "off",
-    "import/prefer-default-export": "off",
-    "no-duplicate-imports": "error",
-    "import/no-named-default": "off",
+    "@typescript-eslint/no-empty-interface": "off",
+    "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/no-shadow": ["error"],
-    "no-shadow": "off",
-    "import/extensions": ["error", "never", { svg: "always" }],
-    quotes: ["error", "double"],
-    "prettier/prettier": 2,
-    semi: ["error", "always"],
     "class-methods-use-this": "off",
-    "no-useless-constructor": "off",
+    "import/extensions": ["error", "never", { svg: "always" }],
+    "import/no-named-default": "off",
     "import/order": [
       2,
       {
@@ -51,6 +45,14 @@ module.exports = {
         },
         "newlines-between": "always-and-inside-groups"
       }
-    ]
+    ],
+    "import/prefer-default-export": "off",
+    "max-classes-per-file": 0,
+    "no-duplicate-imports": "error",
+    "no-shadow": "off",
+    "no-useless-constructor": "off",
+    "prettier/prettier": 2,
+    quotes: ["error", "double"],
+    semi: ["error", "always"]
   }
 };
