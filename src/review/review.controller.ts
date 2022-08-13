@@ -9,8 +9,8 @@ export class ReviewController {
   constructor(private readonly reviewService: ReviewService) {}
 
   @Post("create")
-  async create(@Body() dto: Omit<CreateReviewDto, "_id">) {
-    this.reviewService.create(dto);
+  async create(@Body() dto: CreateReviewDto) {
+    return this.reviewService.create(dto);
   }
 
   @Delete(":id")
@@ -29,7 +29,7 @@ export class ReviewController {
     return this.reviewService.findByProductId(productId);
   }
 
-  @Delete(":id")
+  @Delete("byProduct/:productId")
   async deleteByProductId(@Param("id") id: string) {
     const { ok, deletedCount, n } = await this.reviewService.deleteByProductId(id);
 
