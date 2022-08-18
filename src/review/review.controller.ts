@@ -13,6 +13,7 @@ import {
 } from "@nestjs/common";
 
 import { JwtAuthGuard } from "../auth/guards/jwt.guards";
+import { UserEmail } from "../decorators/user-email.decorator";
 import { CreateReviewDto } from "./dto/create-review.dto";
 import { REVIEW_NOT_FOUND } from "./review.constants";
 import { ReviewService } from "./review.service";
@@ -40,7 +41,9 @@ export class ReviewController {
 
   @UseGuards(JwtAuthGuard)
   @Get("byProduct/:productId")
-  async getByProduct(@Param("productId") productId: string) {
+  async getByProduct(@Param("productId") productId: string, @UserEmail() email: string) {
+    console.log(email);
+
     return this.reviewService.findByProductId(productId);
   }
 
