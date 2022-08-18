@@ -39,16 +39,15 @@ export class ReviewController {
     // Automatic 200 OK response
   }
 
-  @UseGuards(JwtAuthGuard)
   @Get("byProduct/:productId")
-  async getByProduct(@Param("productId") productId: string, @UserEmail() email: string) {
-    console.log(email);
-
+  async getByProduct(@Param("productId") productId: string) {
     return this.reviewService.findByProductId(productId);
   }
 
+  @UseGuards(JwtAuthGuard)
   @Delete("byProduct/:productId")
-  async deleteByProductId(@Param("id") id: string) {
+  async deleteByProductId(@Param("id") id: string, @UserEmail() email: string) {
+    console.log(email);
     const { deletedCount } = await this.reviewService.deleteByProductId(id);
 
     console.log(deletedCount);
