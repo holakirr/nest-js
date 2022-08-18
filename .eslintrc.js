@@ -36,14 +36,14 @@ module.exports = {
     "import/extensions": ["error", "never", { svg: "always" }],
     "import/no-named-default": "off",
     "import/order": [
-      2,
+      "error",
       {
-        groups: ["external", "builtin", "index", "sibling", "parent", "internal", "type"],
+        groups: ["builtin", "external", "internal", ["parent", "sibling", "index"], "object", "type"],
         alphabetize: {
           order: "asc",
           caseInsensitive: true
         },
-        "newlines-between": "always-and-inside-groups"
+        "newlines-between": "always"
       }
     ],
     "import/prefer-default-export": "off",

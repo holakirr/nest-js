@@ -43,8 +43,8 @@ export class ReviewController {
 
   @Delete("byProduct/:productId")
   async deleteByProductId(@Param("id") id: string) {
-    const { ok, deletedCount, n } = await this.reviewService.deleteByProductId(id);
+    const { deletedCount } = await this.reviewService.deleteByProductId(id);
 
-    console.log(ok, deletedCount, n);
+    console.log(deletedCount);
   }
 }

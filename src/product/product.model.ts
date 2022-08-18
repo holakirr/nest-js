@@ -1,7 +1,8 @@
 import { prop } from "@typegoose/typegoose";
 import { Base, TimeStamps } from "@typegoose/typegoose/lib/defaultClasses";
 
-class ProductCharacteristics extends Base {
+export interface ProductCharacteristics extends Base {}
+export class ProductCharacteristics {
   @prop()
   name: string;
 

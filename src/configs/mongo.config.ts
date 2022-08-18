@@ -1,5 +1,4 @@
 import { ConfigService } from "@nestjs/config";
-
 import { TypegooseModuleOptions } from "nestjs-typegoose";
 
 const getMongoString = (configService: ConfigService) =>
@@ -9,7 +8,6 @@ const getMongoString = (configService: ConfigService) =>
 
 const getMongoOptions = () => ({
   useNewUrlParser: true,
-  useCreateIndex: true,
   useUnifiedTopology: true,
   retryWrites: true,
   w: "majority"
