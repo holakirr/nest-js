@@ -54,8 +54,7 @@ describe("ReviewController (e2e)", () => {
         .post("/review/create")
         .send({ ...testDto, rating: 6 })
         .expect(400)
-        .then(({ body }: request.Response) => {
-          console.log(body);
+        .then(() => {
           done();
         });
     });
