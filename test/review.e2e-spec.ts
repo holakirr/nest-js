@@ -93,8 +93,7 @@ describe("ReviewController (e2e)", () => {
       return request(app.getHttpServer())
         .delete(`/review/${createdId}`)
         .set("Authorization", `Bearer ${token}`)
-        .expect(200)
-        .then(() => {});
+        .expect(200);
     });
 
     it("fail", async () => {
@@ -104,8 +103,7 @@ describe("ReviewController (e2e)", () => {
         .expect(404, {
           statusCode: 404,
           message: REVIEW_NOT_FOUND
-        })
-        .then(() => {});
+        });
     });
   });
 });
