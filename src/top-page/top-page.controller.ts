@@ -9,11 +9,13 @@ import {
   Param,
   Patch,
   Post,
+  UseGuards,
   UsePipes,
   ValidationPipe
 } from "@nestjs/common";
 import { Types } from "mongoose";
 
+import { JwtAuthGuard } from "../auth/guards/jwt.guards";
 import { IdValidationPipe } from "../pipes/id-validation.pipe";
 import { CreateTopPageDto } from "./dto/create-top-page.dto";
 import { FindTopPageDto } from "./dto/find-top-page.dto";
@@ -24,6 +26,7 @@ import { TopPageService } from "./top-page.service";
 export class TopPageController {
   constructor(private readonly topPageService: TopPageService) {}
 
+  @UseGuards(JwtAuthGuard)
   @Post("create")
   async create(@Body() dto: CreateTopPageDto) {
     const oldTopPage = await this.topPageService.findByAlias(dto.alias);
@@ -33,6 +36,7 @@ export class TopPageController {
     return this.topPageService.create(dto);
   }
 
+  @UseGuards(JwtAuthGuard)
   @Get(":id")
   async get(@Param("id", IdValidationPipe) id: Types.ObjectId) {
     const topPage = await this.topPageService.findById(id);
@@ -51,6 +55,7 @@ export class TopPageController {
     return topPage;
   }
 
+  @UseGuards(JwtAuthGuard)
   @Delete(":id")
   async delete(@Param("id", IdValidationPipe) id: Types.ObjectId) {
     const topPage = await this.topPageService.deleteById(id);
@@ -58,6 +63,7 @@ export class TopPageController {
     if (topPage === undefined) throw new NotFoundException(ERROR_TOP_PAGE_NOT_FOUND_ID);
   }
 
+  @UseGuards(JwtAuthGuard)
   @Patch(":id")
   async patch(@Param("id", IdValidationPipe) id: Types.ObjectId, @Body() dto: CreateTopPageDto) {
     const topPage = await this.topPageService.updateById(id, dto);
