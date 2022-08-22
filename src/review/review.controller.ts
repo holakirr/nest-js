@@ -14,6 +14,7 @@ import {
 
 import { JwtAuthGuard } from "../auth/guards/jwt.guards";
 import { UserEmail } from "../decorators/user-email.decorator";
+import { IdValidationPipe } from "../pipes/id-validation.pipe";
 import { CreateReviewDto } from "./dto/create-review.dto";
 import { REVIEW_NOT_FOUND } from "./review.constants";
 import { ReviewService } from "./review.service";
@@ -29,7 +30,7 @@ export class ReviewController {
   }
 
   @Delete(":id")
-  async delete(@Param("id") id: string) {
+  async delete(@Param("id", IdValidationPipe) id: string) {
     const deletedDoc = await this.reviewService.delete(id);
 
     if (!deletedDoc) {
@@ -40,13 +41,13 @@ export class ReviewController {
   }
 
   @Get("byProduct/:productId")
-  async getByProduct(@Param("productId") productId: string) {
+  async getByProduct(@Param("productId", IdValidationPipe) productId: string) {
     return this.reviewService.findByProductId(productId);
   }
 
   @UseGuards(JwtAuthGuard)
   @Delete("byProduct/:productId")
-  async deleteByProductId(@Param("id") id: string, @UserEmail() email: string) {
+  async deleteByProductId(@Param("id", IdValidationPipe) id: string, @UserEmail() email: string) {
     console.log(email);
     const { deletedCount } = await this.reviewService.deleteByProductId(id);
 
